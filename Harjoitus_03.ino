@@ -16,11 +16,12 @@ void setup() {
 void loop() {
   int data = Serial.read();
   if(data != -1){
-  Serial.println(data);
   if(data == 'S'){
     digitalWrite(LED, LEDON);
   }else if(data == 'R'){
     digitalWrite(LED, LEDOFF);
+   }else{
+    Serial.println("Ainoastaan S ja R komennot toimivat");
+   }
    }
   }
-}
