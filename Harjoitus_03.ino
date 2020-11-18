@@ -15,10 +15,13 @@ void setup() {
 
 void loop() {
   int data = Serial.read();
-  if(data != -1){
-  if(data == 'S'){
+  if(data == 10 || data == 13 ){
+    data = -1; // ei reagoida näihin
+  }
+  if(data != -1 ){
+  if(data == 'S' || data == 's'){
     digitalWrite(LED, LEDON);
-  }else if(data == 'R'){
+  }else if(data == 'R' || data == 'r'){
     digitalWrite(LED, LEDOFF);
    }else{
     Serial.println("Ainoastaan S ja R komennot toimivat");
